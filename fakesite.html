@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Meeg</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Archivo:wght@400;600;700&display=swap');
+
+    :root {
+      --bg: #e7e4df;
+      --paper: #f3f0ea;
+      --ink: #1b1a18;
+      --muted: #5d5851;
+      --line: #b7b0a6;
+      --accent: #7f4f5f;
+      --accent2: #6d6a86;
+    }
+
+    * { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: 'Archivo', Arial, sans-serif;
+  padding: 14px;
+  position: relative;
+  z-index: 0;
+}
+
+html {
+  background: #000;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: url('textonableton.jpg') repeat;
+  background-size: 300px;
+
+  filter: blur(1px);
+  opacity: 0.45;
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+html {
+  background: transparent;
+}
+
+    .page {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .top {
+  border: 1px solid var(--line);
+  background: rgba(200, 220, 255, 0.85);
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .hero {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .url,
+    .small,
+    summary,
+    .item-meta,
+    .footer {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .url {
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .small {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.45;
+    }
+
+    .top {
+  border: 1px solid var(--line);
+  background: rgba(200, 220, 255, 0.75);
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+details {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.18);
+  margin-bottom: 8px;
+}
+
+.music-section {
+  background: rgba(255, 210, 230, 0.75);
+}
+
+.socials-section {
+  background: rgba(210, 255, 220, 0.75);
+}
+
+.me-section {
+  background: rgba(255, 210, 210, 0.75);
+}
+
+    summary {
+      cursor: pointer;
+      padding: 10px 12px;
+      list-style: none;
+      font-size: 0.88rem
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: "> ";
+      color: var(--accent2);
+    }
+
+    details[open] > summary::before {
+      content: "v ";
+      color: var(--accent);
+    }
+
+    .inside {
+      padding: 0 10px 10px 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    .item,
+    .embed,
+    .bio {
+      border: 1px solid var(--line);
+      background: rgba(255, 245, 180, 0.6);
+      padding: 10px;
+      margin-top: 8px;
+    }
+
+    .item a,
+    .linklist a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .item-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      text-transform: lowercase;
+    }
+
+    .item-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .thumb {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      margin-top: 8px;
+    }
+
+    .linklist a {
+      display: block;
+      padding: 7px 0;
+      text-transform: lowercase;
+    }
+
+    iframe {
+      width: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .footer {
+      margin-top: 14px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: lowercase;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.thumb.small {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.link-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.link-row:hover {
+  opacity: 0.7;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+  </style>
+  <base target="_blank">
+  <link rel="icon" href="serenity.jpg">
+</head>
+<body>
+  <div class="page">
+    <div class="top">
+  <div class="row">
+    <img class="thumb small" src="serenity.jpg" style="width:80px; height:80px;">
+
+    <div>
+        <div class="url">bigmeeg.com</div>
+      <div style="font-size: 1.8rem; font-weight: 700;">Big Meeg</div>
+      <div class="small">
+        trans woman, sober drug addict, tik toker, and rapper &lt;3 <br>
+        check out my music, links, pictures, and me.
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+    <details class="music-section" open>
+      <summary>music</summary>
+      <div class="inside">
+
+<details>
+          <summary>Boymode (2026)</summary>
+          <div class="inside">
+            <div class="item row">
+  <img class="thumb small" src="">
+
+  <div>
+    <div class="item-title">Boymode</div>
+    <div class="item-meta">
+      not passing, not enough, still not hiding
+    </div>
+  </div>
+</div>
+            <div class="item linklist">
+              <div class="item-title">Listen</div>
+              <a href="https://soundcloud.com/bigmeeg">Coming Soon</a>
+          
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Big Meeg's Back (2026)</summary>
+          <div class="inside">
+            <div class="item row">
+  <img class="thumb small" src="https://i1.sndcdn.com/artworks-2O12p0v5XRayE4G8-zG7LpQ-t1080x1080.jpg">
+
+  <div>
+    <div class="item-title">Big Meeg's Back</div>
+    <div class="item-meta">
+      coming back sober, coming out in love. i can be myself loudly
+    </div>
+  </div>
+</div>
+            <div class="item linklist">
+              <div class="item-title">Listen</div>
+              <a href="https://on.soundcloud.com/1dNrWONQt7agh7CHpY">Soundcloud</a>
+              <a href="https://youtube.com/playlist?list=PLwzuKWockshbirfEWSxqdWhPx81Sr3qfX&si=b_Iwi7nLRzNO4nmA">Youtube</a>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>21-23 (2026)</summary>
+          <div class="inside">
+            <div class="item row">
+  <img class="thumb small" src="https://i1.sndcdn.com/artworks-oQLz0CyyaEolfDKy-zangYA-t1080x1080.jpg">
+
+  <div>
+    <div class="item-title">21-23</div>
+    <div class="item-meta">
+      addiction takes all, i'm falling apart slowly
+    </div>
+  </div>
+</div>
+            <div class="item linklist">
+              <div class="item-title">Listen</div>
+              <a href="https://soundcloud.com/bigmeeg/sets/meeg-23-1">Soundcloud</a>
+            </div>
+          </div>
+        </details>
+
+         <details>
+          <summary>MEEG & DIANTE 2 (2022)</summary>
+          <div class="inside">
+            <div class="item row">
+  <img class="thumb small" src="https://i1.sndcdn.com/artworks-7rupF9daLGRie4TX-yC8btA-t1080x1080.jpg">
+
+  <div>
+    <div class="item-title">MEEG & DIANTE 2</div>
+    <div class="item-meta">
+      high on life and everything else, it can be us against the world
+    </div>
+  </div>
+</div>
+            <div class="item linklist">
+              <div class="item-title">Listen</div>
+              <a href="https://on.soundcloud.com/fyxWeHI2kkT9p0aJnj">Soundcloud</a>
+              <a href="https://open.spotify.com/album/6te4wXzVpNTFr7u3aY7gXh">Spotify</a>
+              <a href="https://music.apple.com/us/album/meeg-diante-2/1660625433">Apple Music</a>
+              <a href="https://tidal.com/album/267510310">TIDAL</a>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>THE BEST OF BIG MEEG (2019-2024)</summary>
+          <div class="inside">
+            <div class="item row">
+  <img class="thumb small" src="https://i1.sndcdn.com/artworks-ZbJQXaWKSUyxOeJW-tDNNBQ-t1080x1080.jpg">
+
+  <div>
+    <div class="item-title">THE BEST OF BIG MEEG</div>
+    <div class="item-meta">
+      discovering myself and music together, naive and lost, i'm nothing without these
+    </div>
+  </div>
+</div>
+            <div class="item linklist">
+              <div class="item-title">Listen</div>
+              <a href="https://on.soundcloud.com/QIyo8xTAhSadh3BVvc">Soundcloud</a>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Streaming Profiles</summary>
+          <div class="inside">
+        <div class="embed">
+  <div class="item-title">Spotify</div>
+
+  <iframe
+    style="border-radius:12px"
+    src="https://open.spotify.com/embed/artist/0Y3byMsTFHuXFdsXYQDwmx"
+    width="100%"
+    height="352"
+    frameborder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</div>
+            <div class="item linklist">
+              <div class="embed">
+  <div class="item-title">SoundCloud</div>
+
+  <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A1091022886&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/bigmeeg" title="Big Meeg &amp; Diante Rivera" target="_blank" style="color: #cccccc; text-decoration: none;">Big Meeg &amp; Diante Rivera</a> · <a href="https://soundcloud.com/bigmeeg/sets/best-of-big-meeg-so-far" title="THE BEST OF BIG MEEG" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+</div>
+
+<a href="https://music.apple.com/us/artist/big-meeg/1524617289">Apple Music</a>
+              <a href="https://www.youtube.com/channel/UC76Xm_X4jQk16f3cyhsMIwQ">Youtube</a>
+              <a href="https://tidal.com/artist/20555983">TIDAL</a>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </details>
+
+    <details class="socials-section">
+      <summary>socials</summary>
+      <div class="inside">
+        <div class="embed">
+          <div class="item-title">Tik Tok</div>
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@hotdogwrestling" data-unique-id="hotdogwrestling" data-embed-type="creator" style="max-width: 780px; min-width: 288px;" > <section> <a target="_blank" href="https://www.tiktok.com/@hotdogwrestling?refer=creator_embed">@hotdogwrestling</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+        </div>
+        
+          
+        <div class="item linklist">
+
+  <a class="link-row" href="https://www.instagram.com/big_meeg/" target="_blank" rel="noopener noreferrer">
+    <img class="icon" src="instapfp.jpg">
+    <span>Instagram</span>
+  </a>
+
+  <a class="link-row" href="https://www.youtube.com/@big_meeg" target="_blank" rel="noopener noreferrer">
+    <img class="icon" src="ytpfp.jpg">
+    <span>YouTube</span>
+  </a>
+
+  <a class="link-row" href="https://soundcloud.com/bigmeeg" target="_blank" rel="noopener noreferrer">
+    <img class="icon" src="scpfp.jpg">
+    <span>SoundCloud</span>
+  </a>
+
+</div>
+      </div>
+    </details>
+
+    <details class="me-section">
+      <summary>me</summary>
+      <div class="inside">
+
+  <div class="item row">
+    <img class="thumb small" src="performing.jpg" style="width:80px; height:80px;">
+
+    <div>
+      <div class="item-title">i'm big meeg</div>
+      <div class="item-meta">
+        i make soundcloud rap music, tik toks, and write poetry.<br><br>
+        art is my passion. helps that i'm really good at it<br><br>
+        i'm so fucking cool.
+      </div>
+    </div>
+  </div>
+  <div class="item row">
+    <img class="thumb small" src="selfie.jpg" style="width:80px; height:80px;">
+
+    <div>
+      <div class="item-title">i'm me</div>
+      <div class="item-meta">
+        i like makeup, pro wrestling, diet soda, and friends.<br><br>
+        i love hard. i want to be funny and beautiful.<br><br>
+        i love being me. i hope i can help you love you too
+      </div>
+    </div>
+  </div>
+
+
+    </details>
+
+    <div class="footer"><mark>thanks for being here <3</mark></div>
+  </div>
+</body>
+</html>
